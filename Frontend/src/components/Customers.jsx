@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Star, Building, Users, TrendingUp, Shield } from 'lucide-react';
+import Footer from './Footer';
 
 const Customers = () => {
   const testimonials = [
@@ -288,6 +289,7 @@ const Customers = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
