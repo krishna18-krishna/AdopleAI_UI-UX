@@ -194,26 +194,8 @@ const Customers = () => {
           >
             Explore How Teams Use Us
           </h2>
-          <div className="flex justify-center gap-4 mb-12">
-            <button
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium"
-              data-aos="fade-right"
-              data-aos-delay="200"
-              data-aos-duration="600"
-            >
-              Choose by Sector
-            </button>
-            <button
-              className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50"
-              data-aos="fade-left"
-              data-aos-delay="400"
-              data-aos-duration="600"
-            >
-              Filter by Team Function
-            </button>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {caseStudies.map((study, index) => (
               <div
                 key={index}
@@ -237,10 +219,6 @@ const Customers = () => {
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {study.description}
                   </p>
-                  <button className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-2">
-                    Read More
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             ))}
@@ -253,7 +231,7 @@ const Customers = () => {
               data-aos-delay="800"
               data-aos-duration="700"
             >
-              Explore more →
+              Explore more ↓
             </button>
           </div>
         </div>
