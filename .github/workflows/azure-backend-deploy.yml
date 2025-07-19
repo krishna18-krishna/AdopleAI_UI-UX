@@ -7,32 +7,20 @@ on:
 
 jobs:
   deploy:
-    name: Deploy Backend
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
+      - name: Zip Backend
         run: |
           cd Backend
-          pip install -r requirements.txt
           zip -r ../Backend.zip .
 
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          publish-profile: ${{ secrets.AZURE_BACKEND_PUBLISH_PROFILE }}
-
-      - name: Deploy to Azure Web App
+      - name: Deploy to Azure Web App using Publish Profile
         uses: azure/webapps-deploy@v2
         with:
           app-name: adople-backend
-          slot-name: production
+          publish-profile: ${{ secrets.AZURE_BACKEND_PUBLISH_PROFILE }}
           package: Backend.zip
