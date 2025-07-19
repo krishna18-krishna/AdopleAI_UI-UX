@@ -61,7 +61,7 @@ const CheckoutForm = () => {
     setStatus('');
 
     try {
-      const res = await axios.post('https://adopleupdatedwebsite-a8ebc8gafpfugzbm.centralus-01.azurewebsites.net/create-payment-intent', {
+      const res = await axios.post('https://adopleui-ux-e0g4d9b4awb9f9ac.centralus-01.azurewebsites.net/create-payment-intent', {
         amount: 1000,
       });
 
