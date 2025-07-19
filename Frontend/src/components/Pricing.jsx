@@ -33,7 +33,7 @@ const CheckoutForm = () => {
     setStatus('');
 
     try {
-      const res = await axios.post('http://localhost:8000/create-payment-intent', {
+      const res = await axios.post('https://adople-backend-atf2deadf3dwc2hk.canadacentral-01.azurewebsites.net/api/pricing', {
         amount: 1000,
       });
 
