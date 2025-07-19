@@ -5,9 +5,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
 import uvicorn  
+from dotenv import load_dotenv
 
-stripe.api_key = "sk_test_51RmG6PIpFCZpCwt5YnqHHjrp8MQUdexqRFSEu7cx8sdMYqR4GGT9ppYSNsH2EaRi4ayQKlxrkDnqZMCi9Oh4GExb008wkQmwXL"
+load_dotenv()
 
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
+
+stripe.api_key = "STRIPE_SECRET_KEY"
 app = FastAPI()
 
 # Allow frontend to access
