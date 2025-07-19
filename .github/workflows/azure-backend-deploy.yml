@@ -20,12 +20,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd backend
+          cd Backend
           pip install -r requirements.txt
 
       - name: Zip backend for deploy
         run: |
-          cd backend
+          cd Backend
           zip -r ../backend.zip .
 
       - name: Deploy to Azure Web App
