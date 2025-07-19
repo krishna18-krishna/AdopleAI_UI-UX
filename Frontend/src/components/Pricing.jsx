@@ -61,7 +61,7 @@ const CheckoutForm = () => {
     setStatus('');
 
     try {
-      const res = await axios.post('https://adople-backend-atf2deadf3dwc2hk.canadacentral-01.azurewebsites.net/pricing', {
+      const res = await axios.post('https://adopleupdatedwebsite-a8ebc8gafpfugzbm.centralus-01.azurewebsites.net/create-payment-intent', {
         amount: 1000,
       });
 
@@ -138,7 +138,7 @@ const CheckoutForm = () => {
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
           <div>
             <label className="block text-sm font-medium text-gray-700">Username</label>
             <input
@@ -237,7 +237,7 @@ function PricingPlans({ onBuyNow }) {
 
   return (
     <div className="flex justify-center items-start bg-gray-50">
-      <div className="bg-white border-2 border-blue-500 rounded-xl shadow-lg px-8 py-4 w-full max-w-md flex flex-col items-start">
+      <div className="bg-white border-2 border-blue-500 rounded-xl shadow-lg px-8 py-4 w-full max-w-md flex flex-col items-start  animate-fade-in">
         <h3 className="text-2xl font-bold mb-2 text-gray-800">Pro Plan</h3>
         <p className="text-3xl font-bold text-blue-700 mb-2">
           $10 <span className="text-base text-gray-500">USD/month</span>
