@@ -1,4 +1,4 @@
-name: Deploy FastAPI Backend to Azure
+name: Deploy FastAPI backend to Azure
 
 on:
   push:
@@ -6,14 +6,15 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
+    name: Deploy Backend
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -22,15 +23,16 @@ jobs:
         run: |
           cd Backend
           pip install -r requirements.txt
+          zip -r ../Backend.zip .
 
-      - name: Zip backend for deploy
-        run: |
-          cd Backend
-          zip -r ../backend.zip .
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          publish-profile: ${{ secrets.AZURE_BACKEND_PUBLISH_PROFILE }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: adople-backend  # ✅ Make sure it matches your Azure App Service name exactly
-          publish-profile: ${{ secrets.AZURE_BACKEND_PUBLISH_PROFILE }}
-          package: backend.zip
+          app-name: adople-backend
+          slot-name: production
+          package: Backend.zip
