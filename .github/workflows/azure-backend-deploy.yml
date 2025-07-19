@@ -32,6 +32,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'adople-backend'
-          slot-name: 'Production'
+          app-name: 'adople-backend'        # <-- Make sure this matches Azure Web App name
+          slot-name: 'Production'           # Default is "Production"
           package: 'Backend.zip'
