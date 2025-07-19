@@ -14,20 +14,48 @@ import {
   FiLoader,
 } from 'react-icons/fi';
 
-// Stripe publishable key
 const stripePromise = loadStripe('pk_test_51RmG6PIpFCZpCwt5u8PwwmJtt2fGoAy8vall9IfUZ4N6Ml7jjM0A2gZImQFNZY27uIBfIBtMVPgCay0AarVvFloK00y5NHeSUN');
 
-// Payment form component
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [paymentSucceeded, setPaymentSucceeded] = useState(false);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePassword = (password) => {
+    // At least one uppercase, one lowercase, one digit, one special character, and minimum 8 characters
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) return;
+
+    if (!username.trim() || !email.trim() || !password.trim()) {
+      setStatus({ type: 'error', message: 'All fields are required.' });
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setStatus({
+        type: 'error',
+        message: 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.',
+      });
+      return;
+    }
 
     setIsLoading(true);
     setStatus('');
@@ -42,6 +70,10 @@ const CheckoutForm = () => {
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
+          billing_details: {
+            name: username,
+            email: email,
+          },
         },
       });
 
@@ -108,6 +140,37 @@ const CheckoutForm = () => {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
+            <label className="block text-sm font-medium text-gray-700">Username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div>
             <div className="flex items-center mb-1 text-blue-600">
               <FiCreditCard className="mr-1.5" />
               <label className="font-medium" htmlFor="card-element">
@@ -164,7 +227,6 @@ const CheckoutForm = () => {
   );
 };
 
-// Pricing plan component
 function PricingPlans({ onBuyNow }) {
   const features = [
     'Increased usage limits across chat, file uploads, and search',
@@ -198,19 +260,16 @@ function PricingPlans({ onBuyNow }) {
   );
 }
 
-// Main page
 export default function Pricing() {
   const [showPayment, setShowPayment] = useState(false);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-2">
       <div className="flex flex-col md:flex-row w-full max-w-5xl gap-8">
-        {/* Pricing Plan */}
         <div className="flex-1">
           <PricingPlans onBuyNow={() => setShowPayment(true)} />
         </div>
 
-        {/* Payment Form */}
         {showPayment && (
           <div className="flex-1">
             <Elements stripe={stripePromise}>
@@ -220,7 +279,6 @@ export default function Pricing() {
         )}
       </div>
 
-      {/* Animation styles */}
       <style>
         {`
           .animate-fade-in {
