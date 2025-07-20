@@ -86,12 +86,29 @@ const CheckoutForm = () => {
         setIsLoading(false);
       } else {
         if (result.paymentIntent.status === 'succeeded') {
-          setStatus({
-            type: 'success',
-            message: 'Payment succeeded! 🎉',
-          });
-          setPaymentSucceeded(true);
-          setIsLoading(false);
+          // Register user after payment success
+          try {
+            await axios.post('https://adopleui-ux-e0g4d9b4awb9f9ac.centralus-01.azurewebsites.net/register-user', {
+              email,
+              password,
+            });
+            setStatus({
+              type: 'success',
+              message: 'Payment succeeded! 🎉 Redirecting...',
+            });
+            setPaymentSucceeded(true);
+            setIsLoading(false);
+            // Redirect after short delay
+            setTimeout(() => {
+              window.location.href = 'http://agent.adople.ai/';
+            }, 1500);
+          } catch (regErr) {
+            setStatus({
+              type: 'error',
+              message: 'Payment succeeded, but registration failed. Please contact support.',
+            });
+            setIsLoading(false);
+          }
         }
       }
     } catch (err) {

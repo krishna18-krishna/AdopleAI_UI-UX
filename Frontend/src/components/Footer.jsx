@@ -47,7 +47,7 @@ const Footer = () => {
         >
           {[...Array(14)].map((_, i) => (
             <SwiperSlide key={i}>
-              <div className="bg-white h-[150px] flex items-center justify-center rounded-xl hover:shadow-lg transition">
+              <div className="bg-white h-[150px] flex items-center justify-center rounded-xl hover:shadow-2xl transition">
                 <img
                   src={`/images/image/logo${i + 1}.avif`}
                   alt={`Logo ${i + 1}`}

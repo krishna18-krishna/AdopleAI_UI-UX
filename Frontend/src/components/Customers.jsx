@@ -15,49 +15,49 @@ import Footer from "./Footer";
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
-    }
+      ease: "easeOut",
+    },
   },
 };
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
-    }
+      ease: "easeOut",
+    },
   },
 };
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
-    }
+      ease: "easeOut",
+    },
   },
 };
 
 const scaleIn = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
-    }
+      ease: "easeOut",
+    },
   },
 };
 
@@ -67,34 +67,34 @@ const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
+      delayChildren: 0.2,
+    },
+  },
 };
 
 const slideInFromBottom = {
   hidden: { opacity: 0, y: 100 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut"
-    }
+      ease: "easeOut",
+    },
   },
 };
 
 const bounceIn = {
   hidden: { opacity: 0, scale: 0 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
     transition: {
       type: "spring",
       stiffness: 300,
       damping: 20,
-      duration: 0.6
-    }
+      duration: 0.6,
+    },
   },
 };
 
@@ -157,14 +157,16 @@ const Customers = () => {
       title: "Fragmented healthcare data delays critical insights.",
       description:
         "Built a QA chatbot that fetches info from PDFs, websites, and databases using chunking, embeddings, and Pinecone for fast retrieval, with generative AI for accurate, real-time answers.",
-      image: "https://ik.imagekit.io/wildxv7xr/logo8.avif?updatedAt=1752927923262",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/logo8.avif?updatedAt=1752927923262",
       category: "Healthcare, Government",
     },
     {
       title: "Evolving ESG rules challenge real-time portfolio decisions.",
       description:
         "Developed Element 6, a platform that uses deep learning to analyze news sentiment and topics, assigning environmental scores to help asset managers manage ESG risks and optimize portfolios.",
-      image: "https://ik.imagekit.io/wildxv7xr/logo13.avif?updatedAt=1752927924240",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/logo13.avif?updatedAt=1752927924240",
       category: "Finance, Environmental Risk Analytics",
     },
     {
@@ -172,7 +174,8 @@ const Customers = () => {
         "Manual contract processes create inefficiencies and compliance risks.",
       description:
         "Developed a GPT-3.5-powered contract management system that automates extraction of key data, identifies risks, compares contracts, and generates structured outputs—reducing manual effort and enhancing compliance.",
-      image: "https://ik.imagekit.io/wildxv7xr/logo2.avif?updatedAt=1752927920104",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/logo2.avif?updatedAt=1752927920104",
       category: "Legal, Telecommunications",
     },
     {
@@ -180,35 +183,40 @@ const Customers = () => {
         "Manual resume screening is slow, biased, and misses top talent matches.",
       description:
         "Built an AI-powered platform that automates resume and job description matching by extracting key features, using semantic similarity algorithms, and scoring fit. It generates detailed match reports and includes a feedback loop for continuous improvement.",
-      image: "https://ik.imagekit.io/wildxv7xr/logo7.avif?updatedAt=1752927920081",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/logo7.avif?updatedAt=1752927920081",
       category: "Human Resources, Recruitment",
     },
     {
       title: "Users need empathetic, data-backed mental health support.",
       description:
         "Developed a chat-based mental health assistant powered by GPT-3.5 and advanced NLU, integrated with healthcare databases for accurate, context-aware responses. Continuously improves through user feedback to enhance support quality and personalization.",
-      image: "https://ik.imagekit.io/wildxv7xr/image.png?updatedAt=1752927919500",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/image.png?updatedAt=1752927919500",
       category: "Healthcare, Digital Mental Health",
     },
     {
       title: "Automated video creation for digital learning content.",
       description:
         "Developed a Text2Video system that transforms educational text into narrated, comic-style videos by integrating OpenAI Azure, DALL·E for image generation, Google gTTS for text-to-speech, and MoviePy for video assembly. Includes a user-friendly Gradio interface for seamless content creation.",
-      image: "https://ik.imagekit.io/wildxv7xr/logo12.avif?updatedAt=1752927923836",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/logo12.avif?updatedAt=1752927923836",
       category: "EdTech, Digital Publishing, Media",
     },
     {
       title: "AI tools for faster, smarter video production.",
       description:
         "Built an AI-powered video editor using Whisper and MoviePy with auto transcription, translation, silence removal, transcript-based editing, and content insights like sentiment and topics.",
-      image: "https://ik.imagekit.io/wildxv7xr/image%20(1).png?updatedAt=1752927919517",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/image%20(1).png?updatedAt=1752927919517",
       category: "Media, Social Networking, Video Technology",
     },
     {
       title: "Telecoms use AI for smarter customer engagement",
       description:
         "Designed a scalable Dutch-language chatbot system using LSTM/GRU models and Word2Vec to automate intent detection and sentiment analysis. Integrated directly into CRM platforms to enhance response accuracy, speed up issue resolution, and improve overall customer experience.",
-      image: "https://ik.imagekit.io/wildxv7xr/image%20(2).png?updatedAt=1752927919519",
+      image:
+        "https://ik.imagekit.io/wildxv7xr/image%20(2).png?updatedAt=1752927919519",
       category: "Telecommunications, Customer Support",
     },
   ];
@@ -225,7 +233,7 @@ const Customers = () => {
         transition={{
           duration: 6,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       />
       <motion.div
@@ -238,7 +246,7 @@ const Customers = () => {
           duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 1
+          delay: 1,
         }}
       />
       <motion.div
@@ -251,7 +259,7 @@ const Customers = () => {
           duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2
+          delay: 2,
         }}
       />
       <motion.div
@@ -264,25 +272,25 @@ const Customers = () => {
           duration: 7,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 0.5
+          delay: 0.5,
         }}
       />
 
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1 
+          <motion.h1
             className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6"
             variants={fadeInUp}
           >
             What Our Customers Say
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl text-gray-600 max-w-3xl mx-auto"
             variants={fadeInUp}
           >
@@ -293,7 +301,7 @@ const Customers = () => {
       </motion.section>
 
       {/* Trusted by Industry Leaders */}
-      <motion.section 
+      <motion.section
         className="py-16 bg-gray-50"
         initial="hidden"
         whileInView="visible"
@@ -301,29 +309,29 @@ const Customers = () => {
         variants={staggerContainer}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
+          <motion.h2
             className="text-3xl font-bold text-gray-900 text-center mb-12"
             variants={fadeInUp}
           >
             Trusted by Industry Leaders
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             variants={staggerContainer}
           >
             {industryLeaders.map((leader, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <motion.div 
+                  <motion.div
                     className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
@@ -331,7 +339,7 @@ const Customers = () => {
                     <Building className="w-6 h-6 text-blue-600" />
                   </motion.div>
                   <div className="flex-1">
-                    <motion.p 
+                    <motion.p
                       className="text-gray-700 italic mb-4"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -340,7 +348,7 @@ const Customers = () => {
                       "{leader.quote}"
                     </motion.p>
                     <div className="flex items-center gap-3">
-                      <motion.div 
+                      <motion.div
                         className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center"
                         whileHover={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 300 }}
@@ -377,11 +385,11 @@ const Customers = () => {
               (study, index) => {
                 const isExpanded = expandedCards.has(index);
                 const shouldTruncate = study.description.length > 120;
-                
+
                 return (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out transform"
                     layout
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -412,7 +420,7 @@ const Customers = () => {
                             : truncateText(study.description, 120)}
                         </p>
                       </motion.div>
-                      
+
                       {shouldTruncate && (
                         <button
                           onClick={() => toggleCardExpansion(index)}
@@ -437,8 +445,8 @@ const Customers = () => {
           </div>
 
           {/* Toggle button */}
-           {caseStudies.length > 6 && (
-            <motion.div 
+          {caseStudies.length > 6 && (
+            <motion.div
               className="text-center mt-12"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -448,20 +456,20 @@ const Customers = () => {
               <motion.button
                 onClick={() => setShowAllCaseStudies(!showAllCaseStudies)}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)"
+                  boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
                 animate={{
                   boxShadow: [
                     "0 5px 15px rgba(37, 99, 235, 0.2)",
                     "0 8px 25px rgba(37, 99, 235, 0.3)",
-                    "0 5px 15px rgba(37, 99, 235, 0.2)"
-                  ]
+                    "0 5px 15px rgba(37, 99, 235, 0.2)",
+                  ],
                 }}
                 transition={{
-                  boxShadow: { duration: 2, repeat: Infinity }
+                  boxShadow: { duration: 2, repeat: Infinity },
                 }}
               >
                 {showAllCaseStudies ? "Show Less ↑" : "Explore more ↓"}
@@ -472,7 +480,7 @@ const Customers = () => {
       </section>
 
       {/* Success Metrics */}
-      <motion.section 
+      <motion.section
         className="py-16 bg-gray-50"
         initial="hidden"
         whileInView="visible"
@@ -480,53 +488,69 @@ const Customers = () => {
         variants={slideInFromBottom}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="bg-white rounded-2xl p-8 shadow-lg"
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
-              boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
+              boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)",
             }}
             transition={{ duration: 0.3 }}
           >
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-bold text-gray-900 text-center mb-8"
               variants={fadeInUp}
             >
               Success Metrics
             </motion.h3>
-            <motion.div 
+            <motion.div
               className="grid grid-cols-2 lg:grid-cols-4 gap-8"
               variants={staggerContainer}
             >
               {[
-                { value: "60%", label: "Faster ticket resolution", color: "text-blue-600" },
-                { value: "70%", label: "Reduction in agent workload", color: "text-green-600" },
-                { value: "40%", label: "Improvement in search accuracy", color: "text-purple-600" },
-                { value: "3x", label: "Boost in employee productivity", color: "text-orange-600" }
+                {
+                  value: "60%",
+                  label: "Faster ticket resolution",
+                  color: "text-blue-600",
+                },
+                {
+                  value: "70%",
+                  label: "Reduction in agent workload",
+                  color: "text-green-600",
+                },
+                {
+                  value: "40%",
+                  label: "Improvement in search accuracy",
+                  color: "text-purple-600",
+                },
+                {
+                  value: "3x",
+                  label: "Boost in employee productivity",
+                  color: "text-orange-600",
+                },
               ].map((metric, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className="text-center"
                   variants={bounceIn}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.1,
-                    transition: { type: "spring", stiffness: 300 }
+                    transition: { type: "spring", stiffness: 300 },
                   }}
                 >
-                  <motion.div 
+                  <motion.div
                     className={`text-4xl font-bold ${metric.color} mb-2`}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 300, 
-                      delay: index * 0.1 
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      delay: index * 0.1,
                     }}
                   >
                     {metric.value}
                   </motion.div>
-                  <motion.div 
+                  <motion.div
                     className="text-gray-600"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}

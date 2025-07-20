@@ -282,12 +282,6 @@ const Header = () => {
               >
                 Pricing
               </a>
-              <a
-                href="#"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200"
-              >
-                Resources
-              </a>
             </div>
           </div>
         )}

@@ -6,6 +6,7 @@ from pydantic import BaseModel
 import os
 import uvicorn  
 from dotenv import load_dotenv
+from passlib.context import CryptContext
 
 load_dotenv()
 
@@ -17,7 +18,11 @@ app = FastAPI()
 # Allow frontend to access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://www.adople.ai"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://www.adople.ai"
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -52,6 +57,23 @@ async def stripe_webhook(request: Request):
 
     return {"status": "success"}
 
+# Password hashing context
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# In-memory user store (for demo only)
+users = []
+
+class RegisterUserRequest(BaseModel):
+    email: str
+    password: str
+
+@app.post("/register-user")
+def register_user(data: RegisterUserRequest):
+    hashed_password = pwd_context.hash(data.password)
+    user = {"email": data.email, "password": hashed_password}
+    users.append(user)
+    print(f"Registered user: {user}")
+    return {"status": "success"}
+
 if __name__ == "__main__":
     uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
-
