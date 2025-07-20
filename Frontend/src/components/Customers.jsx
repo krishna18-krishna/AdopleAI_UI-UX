@@ -366,25 +366,13 @@ const Customers = () => {
       </motion.section>
 
       {/* Explore How Teams Use Us */}
-      <motion.section 
-        className="py-16 bg-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={staggerContainer}
-      >
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            className="text-3xl font-bold text-gray-900 text-center mb-4"
-            variants={fadeInUp}
-          >
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
             Explore How Teams Use Us
-          </motion.h2>
+          </h2>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
-            variants={staggerContainer}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             {(showAllCaseStudies ? caseStudies : caseStudies.slice(0, 6)).map(
               (study, index) => {
                 const isExpanded = expandedCards.has(index);
@@ -393,68 +381,42 @@ const Customers = () => {
                 return (
                   <motion.div
                     key={index}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
-                    variants={scaleIn}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
                     layout
-                    whileHover={{ 
-                      y: -5,
-                      transition: { duration: 0.2 }
-                    }}
-                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    <motion.div 
-                      className="bg-white h-[100px] flex items-center justify-center rounded-xl overflow-hidden"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <motion.img
+                    <div className="bg-white h-[100px] flex items-center justify-center rounded-xl">
+                      <img
                         src={study.image}
                         alt={study.title}
                         className="max-h-full max-w-full object-contain"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 }}
                       />
-                    </motion.div>
+                    </div>
                     <div className="p-6">
-                      <motion.div 
-                        className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
+                      <div className="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-3">
                         {study.category}
-                      </motion.div>
-                      <motion.h3 
-                        className="text-xl font-semibold text-gray-900 mb-3"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 + 0.2 }}
-                      >
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-3">
                         {study.title}
-                      </motion.h3>
+                      </h3>
                       <motion.div
                         initial={false}
                         animate={{ height: "auto" }}
                         transition={{ duration: 0.3 }}
                       >
-                        <motion.p 
-                          className="text-gray-600 mb-4 leading-relaxed"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: index * 0.1 + 0.3 }}
-                        >
+                        <p className="text-gray-600 mb-4 leading-relaxed">
                           {isExpanded || !shouldTruncate
                             ? study.description
                             : truncateText(study.description, 120)}
-                        </motion.p>
+                        </p>
                       </motion.div>
                       
                       {shouldTruncate && (
-                        <motion.button
+                        <button
                           onClick={() => toggleCardExpansion(index)}
                           className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-200"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
                         >
                           {isExpanded ? (
                             <>
@@ -465,40 +427,49 @@ const Customers = () => {
                               See more <ChevronDown className="w-4 h-4" />
                             </>
                           )}
-                        </motion.button>
+                        </button>
                       )}
                     </div>
                   </motion.div>
                 );
               }
             )}
-          </motion.div>
+          </div>
 
           {/* Toggle button */}
-          {caseStudies.length > 6 && (
+           {caseStudies.length > 6 && (
             <motion.div 
               className="text-center mt-12"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
             >
               <motion.button
                 onClick={() => setShowAllCaseStudies(!showAllCaseStudies)}
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                  boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                animate={{
+                  boxShadow: [
+                    "0 5px 15px rgba(37, 99, 235, 0.2)",
+                    "0 8px 25px rgba(37, 99, 235, 0.3)",
+                    "0 5px 15px rgba(37, 99, 235, 0.2)"
+                  ]
+                }}
+                transition={{
+                  boxShadow: { duration: 2, repeat: Infinity }
+                }}
               >
                 {showAllCaseStudies ? "Show Less ↑" : "Explore more ↓"}
               </motion.button>
             </motion.div>
           )}
         </div>
-      </motion.section>
+      </section>
 
       {/* Success Metrics */}
       <motion.section 
