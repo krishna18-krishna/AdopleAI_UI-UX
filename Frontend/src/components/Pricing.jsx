@@ -13,6 +13,7 @@ import {
   FiAlertCircle,
   FiLoader,
 } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const stripePromise = loadStripe('pk_test_51RmG6PIpFCZpCwt5u8PwwmJtt2fGoAy8vall9IfUZ4N6Ml7jjM0A2gZImQFNZY27uIBfIBtMVPgCay0AarVvFloK00y5NHeSUN');
 
@@ -242,12 +243,14 @@ function PricingPlans({ onBuyNow }) {
         <p className="text-3xl font-bold text-blue-700 mb-2">
           $10 <span className="text-base text-gray-500">USD/month</span>
         </p>
-        <button
+        <motion.button
           className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-2 font-semibold mb-4 transition"
           onClick={onBuyNow}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Buy Now
-        </button>
+        </motion.button>
         <ul className="list-none p-0 text-left w-full space-y-2">
           {features.map((feature, idx) => (
             <li key={idx} className="text-gray-700 text-base flex items-center">

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, Play, Bot, Zap, Shield, Globe } from "lucide-react";
 
 const Hero = () => {
@@ -22,14 +23,38 @@ const Hero = () => {
             Adople empowers your teams to get work done faster using natural
             language conversations.
           </p>
-          <div className="text-center">
-            <button
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 font-semibold flex items-center justify-center gap-2 transition mx-auto"
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <motion.button
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-8 py-3 font-semibold flex items-center justify-center gap-2 transition mx-auto group"
               onClick={() => (window.location.href = "/pricing")}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              Buy now
-            </button>
-          </div>
+              <motion.span
+                initial={{ x: 0 }}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                Buy now
+              </motion.span>
+              <motion.div
+                initial={{ x: 0 }}
+                whileHover={{ x: 5 }}
+                transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
+              >
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.div>
+            </motion.button>
+          </motion.div>
           {/* Animated feature cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div

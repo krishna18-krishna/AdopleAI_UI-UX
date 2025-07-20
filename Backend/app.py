@@ -17,7 +17,7 @@ app = FastAPI()
 # Allow frontend to access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://polite-water-0b95a5f10.1.azurestaticapps.net"],
+    allow_origins=["https://www.adople.ai"],
     allow_methods=["*"],
     allow_headers=["*"],
 )

@@ -8,6 +8,7 @@ import {
   Linkedin,
   Github,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -65,8 +66,8 @@ const Footer = () => {
             {/* Company Info */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                  <img src="/images/AdopleAI_Logo.png" alt="Adople Logo" />
                 </div>
                 <span className="text-xl font-bold">Adople</span>
               </div>
@@ -75,15 +76,30 @@ const Footer = () => {
                 communicate, and solve problems.
               </p>
               <div className="flex space-x-4">
-                {[Twitter, Linkedin, Github].map((Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
               </div>
             </div>
 
@@ -91,18 +107,38 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Platform</h3>
               <ul className="space-y-2 text-gray-400">
-                {["Features", "Integrations", "Security", "API"].map(
-                  (item, index) => (
-                    <li key={index}>
-                      <a
-                        href="#"
-                        className="hover:text-white transition-colors"
-                      >
-                        {item}
-                      </a>
-                    </li>
-                  )
-                )}
+                <li>
+                  <Link
+                    to="/"
+                    className="hover:text-white transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/customers"
+                    className="hover:text-white transition-colors"
+                  >
+                    Customers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/pricing"
+                    className="hover:text-white transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-white transition-colors"
+                  >
+                    API
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -110,16 +146,26 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
-                {["About", "Blog", "Careers", "Press"].map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      className="hover:text-white transition-colors"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Press
+                  </a>
+                </li>
               </ul>
             </div>
 
